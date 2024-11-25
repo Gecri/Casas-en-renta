@@ -1,8 +1,12 @@
 {
     "dependencies":{
+        "BCrypt":"^3.1.0+4",
+        "cbvalidation":"^4.4.0+26",
         "taffy":"^3.3.0"
     },
     "installPaths":{
+        "BCrypt":"modules/BCrypt/",
+        "cbvalidation":"modules/cbvalidation/",
         "taffy":"taffy/"
     }
 }

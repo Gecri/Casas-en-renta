@@ -1,0 +1,64 @@
+{
+    "name":"CBStorages",
+    "version":"3.1.0+1",
+    "location":"https://downloads.ortussolutions.com/ortussolutions/coldbox-modules/cbstorages/3.1.0/cbstorages-3.1.0.zip",
+    "author":"Ortus Solutions.com <info@ortussolutions.com>",
+    "slug":"cbstorages",
+    "type":"modules",
+    "keywords":"storages, session, cache, client, distributed cache",
+    "homepage":"https://github.com/coldbox-modules/cbstorages",
+    "documentation":"https://github.com/coldbox-modules/cbstorages",
+    "bugs":"https://github.com/coldbox-modules/cbstorages/issues",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/coldbox-modules/cbstorages"
+    },
+    "shortDescription":"Provides a collection of facade storages for ColdFusion and distributed caching",
+    "license":[
+        {
+            "type":"Apache2",
+            "url":"http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    ],
+    "contributors":[
+        "Brad Wood <bdw429s@gmail.com>",
+        "Curt Gratz <gratz@computerknowhow.com>",
+        "Jon Clausen <jclausen@ortussolutions.com>",
+        "Dan Murphy"
+    ],
+    "dependencies":{},
+    "devDependencies":{
+        "commandbox-cfformat":"*",
+        "commandbox-docbox":"*",
+        "commandbox-dotenv":"*",
+        "commandbox-cfconfig":"*"
+    },
+    "installPaths":{},
+    "ignore":[
+        "**/.*",
+        "build/**",
+        "test-harness",
+        "/server*.json"
+    ],
+    "testbox":{
+        "runner":"http://localhost:60299/tests/runner.cfm"
+    },
+    "scripts":{
+        "build:module":"task run taskFile=build/Build.cfc :projectName=`package show slug` :version=`package show version`",
+        "build:docs":"task run taskFile=build/Build.cfc target=docs :projectName=`package show slug` :version=`package show version`",
+        "release":"recipe build/release.boxr",
+        "format":"cfformat run ModuleConfig.cfc,models/,test-harness/tests/**/*.cfc ./.cfformat.json --overwrite",
+        "format:watch":"cfformat watch ModuleConfig.cfc,models/,test-harness/tests/**/*.cfc ./.cfformat.json",
+        "format:check":"cfformat check ModuleConfig.cfc,models/,test-harness/tests/**/*.cfc ./.cfformat.json",
+        "install:dependencies":"install && cd test-harness && install",
+        "start:lucee":"server start serverConfigFile=server-lucee@5.json",
+        "start:2018":"server start serverConfigFile=server-adobe@2018.json",
+        "start:2021":"server start serverConfigFile=server-adobe@2021.json",
+        "stop:lucee":"server stop serverConfigFile=server-lucee@5.json",
+        "stop:2018":"server stop serverConfigFile=server-adobe@2018.json",
+        "stop:2021":"server stop serverConfigFile=server-adobe@2021.json",
+        "logs:lucee":"server log serverConfigFile=server-lucee@5.json --follow",
+        "logs:2018":"server log serverConfigFile=server-adobe@2018.json --follow",
+        "logs:2021":"server log serverConfigFile=server-adobe@2021.json --follow"
+    }
+}
